@@ -1,0 +1,483 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap');
+
+:root{
+  --color-standard: #f5f5f5;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-image: url(../asset-main/wallpaperflare.com_wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  transition: transform 4000ms 3s ease;
+}
+
+body::-webkit-scrollbar{
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: #333232;
+  border-radius:5px;
+}
+body::-webkit-scrollbar-thumb:hover{
+  background-color: #555;
+}
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  backdrop-filter: blur(3px);
+  background-color: rgba(244,244,244,.2);
+  animation: drop-top 2s ease forwards;
+  opacity: 0;
+}
+
+.name-web{
+  color: var(--color-standard);
+  margin-right: auto;
+  opacity: 0;
+  animation: tele1 1s 3000ms ease forwards;
+}
+
+.name-web > h1 > a{
+  font-family: "Satisfy", serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 5px;
+  font-size: 30px;
+  text-decoration: none;
+  color: var(--color-standard);
+}
+
+.nav__sub {
+  display: flex;
+  padding: 10px;
+  border-radius: 5px;
+  gap: 100px;
+}
+
+.navbar__item{
+  list-style: none;
+}
+
+.navbar__item--link{
+  text-decoration: none;
+  color: var(--color-standard);
+  position: relative;
+  z-index: 0;
+  padding: 5px 0;
+}
+
+.navbar__item--link::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  z-index: 10000;
+  background-color: #fff;
+  border-radius: 50px;
+  transition: width .3s ease;
+}
+
+.navbar__item--link:hover::before{
+  width: 100%;
+  height: 2px;
+}
+
+.navbar__item--link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease 0.2s;
+}
+
+.navbar__item--link:hover::after {
+  width: 100%;
+}
+
+.log{
+  padding: 10px 25px;
+  margin-left: 50px;
+  border-radius: 14px;
+  cursor: pointer;
+  background: none;
+  border: 2px solid var(--color-standard);
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s ease;
+}
+
+.log-link{
+  text-decoration: none;
+  color: var(--color-standard);
+}
+
+.log:hover{
+  transform: scale(1.1);
+}
+
+.log::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #333232;
+  width: 0;
+  height: 0;
+  z-index: -1;
+  border-radius: 14px;
+  transition: all .5s ease;
+}
+
+.log:hover::before{
+  width: 100%;
+  height: 100%;
+}
+
+.container{
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.image{
+  background-image: url(alya.jpeg);
+  width: 350px;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid var(--color-standard);
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  animation: tele1 2s 1000ms ease forwards, imge 18s 5000ms ease infinite forwards;
+  opacity: 0;
+}
+
+.frames{
+  background-color: rgba(20, 20, 20, 0.6);
+  max-width: 50vw;
+  min-height: 50vh;
+  position: absolute;
+  top: 15vh;
+  right: 10vh;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: block;
+  animation: tele2 2s 2000ms ease forwards;
+  opacity: 0;
+}
+
+.frames > h1,
+.frames > p,
+.sub{
+  color: var(--color-standard);
+}
+
+.frames > h1{
+  text-align: center;
+}
+
+.frames > p{
+  padding: 30px;
+}
+
+.sub{
+  margin: 0 auto;
+  display: block;
+  padding: 20px 30px;
+  border: 2px solid var(--color-standard);
+  border-radius: 30px;
+  background-color: transparent;
+  font-size: 15px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sub > a{
+  text-decoration: none;
+  color: var(--color-standard);
+}
+
+.sub::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background-color: rgba(255,255,255,.4);
+  border-radius: 20px;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.sub:hover::before{
+  width: 100%;
+  height: 100%;
+}
+
+#go-main:target ~ body{
+  transform: scale(1.5);
+}
+
+/* Login */
+.login-box {
+  visibility: hidden;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: 350px;
+  height: 400px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-box > form > input{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Khi được target */
+#login-section:target {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Nút Exit */
+.exit {
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+  background-color: #f44336;
+  color: var(--color-standard);
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  width: 40px;
+}
+
+.exit:hover {
+  background-color: #d32f2f;
+}
+
+.sub-mit{
+  display: block;
+  padding: 10px 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: var(--color-standard);
+  color: #d32f2f;
+  cursor: pointer;
+  transition: transform .3s ease;
+  z-index: 1;
+  border: 2px solid #d32f2f;
+  overflow: hidden;
+  position: relative;
+}
+
+.sub-mit::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background-color: rgba(240, 53, 53, 0.4);
+  border-radius: 10px;
+  z-index: -1;
+  transition: all .3s ease;
+}
+
+.sub-mit:hover::before{
+  width: 100%;
+  height: 100%;
+}
+
+.main{
+  position: relative;
+  top: 100%;
+  height: 100vh;
+}
+.top{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+.top-link{
+  text-decoration: none;
+  outline: none;
+}
+.top-link svg{
+  width: 50px;
+  height: 50px;
+  background-color: #333232;
+  color: var(--color-standard);
+  cursor: pointer;
+  border-radius: 50px;
+}
+.text-introduced{
+  color: var(--color-standard);
+  text-align: center;
+  padding: 20px;
+}
+.apps{
+  display: flex;
+  flex-wrap: wrap;
+}
+.apps > div{
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(141, 131, 131, 0.6);
+  margin: 10px;
+  height: 50vh;
+  color: var(--color-standard);
+  width: 350px;
+  margin-left: 70px;
+  margin-top: 20px;
+  padding: 20px;
+}
+.apps > div > h2{
+  text-align: center;
+}
+.rkt2{
+  overflow-y: scroll;
+}
+.rkt2::-webkit-scrollbar{
+  width: 8px;
+}
+.rkt2::-webkit-scrollbar-thumb{
+  background-color: #333232;
+  border-radius:5px;
+}
+.rkt2::-webkit-scrollbar-thumb:hover{
+  background-color: #555;
+}
+.rkt3{
+  overflow-y: scroll;
+}
+.rkt3::-webkit-scrollbar{
+  width: 8px;
+} 
+.rkt3::-webkit-scrollbar-thumb{
+  background-color: #333232;
+  border-radius:5px;
+}
+/* Media and animation */
+  /* media */
+@media (max-width: 760px) {
+  .image{
+    width: 250px;
+    height: 250px;
+    top: 8rem;
+    left: 25vw;
+  }
+  .nav__sub{
+    gap: 15px;
+  }
+  .log{
+    margin-left: 5px;
+  }
+  .frames{
+    max-width: 100vw;
+    margin-left: 40px;
+    position: absolute;
+    top: 5rem;
+  }
+}
+  /* animation */
+@keyframes imge{
+  0%{
+    background-image: url(alya.jpeg);
+  }
+  20%{
+    background-image: url(Nakano\ Miku\ __\ Gotoubun\ no\ hanayome\ Movie.jpeg);
+  }
+  40%{
+    background-image: url(Siesta\ 🌺\ Icons.jpeg);
+  }
+  60%{
+    background-image: url(Nino\ Nakano\ Icon.jpeg);
+  }
+  80%{
+    background-image: url(❏\ 𝗶𝘁𝘀𝘂𝗸𝗶\ ›\ ♡\ _｡⋆\ 🍒.jpeg);
+  }
+  100%{
+    background-image: url(秋.jpeg);
+  }
+}
+
+@keyframes tele1{
+  0%{
+    transform: translateX(-400%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes tele2{
+  0%{
+    transform: translateX(400%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drop-top{
+  0%{
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
