@@ -345,10 +345,14 @@ nav {
   position: fixed;
   bottom: 0;
   right: 0;
+  transition: transform .3s ease;
 }
 .top-link{
   text-decoration: none;
   outline: none;
+}
+.top:hover{
+  transform: scale(1.1);
 }
 .top-link svg{
   width: 50px;
